@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"bbs/model"
 	"encoding/json"
+	"go-webapi-bbs/model"
 	"io"
 	"io/ioutil"
 	"net/http"

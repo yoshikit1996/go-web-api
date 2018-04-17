@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bbs/router"
+	"go-webapi-bbs/router"
 	"log"
 	"net/http"
 )
