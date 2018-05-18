@@ -1,16 +1,17 @@
-# Go言語で作ったWeb API(掲示板)
+= Go言語で作ったWeb API(掲示板)
 
-## 想定される用途
+== 想定される用途
 このWeb APIは、掲示板アプリのバックエンドとして使用します。  
 Androidアプリの動作例↓  
-![モバイルアプリの動例](https://i.imgur.com/XNlIJj7.gif)
 
-## インストール
+image::https://i.imgur.com/XNlIJj7.gif["モバイルアプリの動例"]
+
+== インストール
 go getコマンドでインストールできます。
 
 `go get github.com/yoshikit1996/go-webapi-bbs`
 
-## 使い方
+== 使い方
 1. サーバーを起動する。
 ```
 cd ~/go/src/github.com/yoshikit1996/go-webapi-bbs/
@@ -19,23 +20,41 @@ go run main.go
 ```  
 ※ 必要に応じてgo getコマンドで依存しているパッケージをダウンロードしていください。また、Windowsで
 `go get github.com/mattn/go-sqlite3`
-コマンドを打つとエラーが発生します。解決策は[こちら](https://github.com/mattn/go-sqlite3/issues/214)。
+コマンドを打つとエラーが発生します。解決策は
+https://github.com/mattn/go-sqlite3/issues/214[こちら]。
 
 2. モバイルアプリからアクセスする。
-https://github.com/yoshikit1996/android-bbs  
+(https://github.com/yoshikit1996/android-bbs)
 
-3. (モバイルアプリを使わない場合)[Postman](https://www.getpostman.com/)等の開発ツールを使う。  
+3. (モバイルアプリを使わない場合)https://www.getpostman.com/[Postman]等の開発ツールを使う。  
 ```
 GETでJSONを取得する http://localhost:8080/posts
 POSTでJSONを送信する http://localhost:8080/posts/new
 ```  
-![モバイルアプリの動例](https://i.imgur.com/YoaqzVz.png)
+image::https://i.imgur.com/YoaqzVz.png[モバイルアプリの動例]
 
 ## モバイルアプリとWeb APIの連携
 Web APIを通して、JSONの送受信を行っています。
 
-![モバイルアプリとWeb APIの連携](https://i.imgur.com/OV41odz.jpg)
+image::https://i.imgur.com/OV41odz.jpg[モバイルアプリとWeb APIの連携]
 
-## プログラム構造
+== プログラム構造
 このWeb APIはGo言語によって、実装されており、MVCアーキテクチャを適用しています。ただし、Web API側にビューは存在しません。(モバイルアプリ側に存在します。)  
-![プログラム構造](https://i.imgur.com/upAaCGN.jpg)
+
+[plantuml]
+....
+@startuml
+
+left to right direction
+
+[Router\n(routerパッケージ)] as router
+[Controller\n(controllerパッケージ)] as controller
+[Model\n(modelパッケージ)] as model
+[View\n(存在しない)] as view #white
+
+router -> controller
+controller <-> model
+controller <-> view
+
+@enduml
+....
