@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
-	"go-webapi-bbs/model"
+	"github.com/yoshikit1996/go-webapi-bbs/model"
 	"io"
 	"io/ioutil"
 	"net/http"

@@ -1,7 +1,7 @@
 package router
 
 import (
-	"go-webapi-bbs/handlers"
+	"github.com/yoshikit1996/go-webapi-bbs/handlers"
 	"net/http"
 )
 
