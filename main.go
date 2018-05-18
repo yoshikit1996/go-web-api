@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/yoshikit1996/go-webapi-bbs/router"
 	"log"
 	"net/http"
+
+	"github.com/yoshikit1996/go-webapi-bbs/router"
 )
 
 func main() {

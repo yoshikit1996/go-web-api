@@ -1,11 +1,12 @@
-package handlers
+package controller
 
 import (
 	"encoding/json"
-	"github.com/yoshikit1996/go-webapi-bbs/model"
 	"io"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/yoshikit1996/go-webapi-bbs/model"
 )
 
 func PostIndex(w http.ResponseWriter, r *http.Request) {

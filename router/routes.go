@@ -1,8 +1,9 @@
 package router
 
 import (
-	"github.com/yoshikit1996/go-webapi-bbs/handlers"
 	"net/http"
+
+	"github.com/yoshikit1996/go-webapi-bbs/controller"
 )
 
 type Route struct {
@@ -19,12 +20,12 @@ var routes = Routes{
 		"PostIndex",
 		"GET",
 		"/posts/",
-		handlers.PostIndex,
+		controller.PostIndex,
 	},
 	Route{
 		"NewPost",
 		"POST",
 		"/posts/new",
-		handlers.NewPost,
+		controller.NewPost,
 	},
 }
