@@ -41,20 +41,4 @@ image::https://i.imgur.com/OV41odz.jpg[モバイルアプリとWeb APIの連携]
 == プログラム構造
 このWeb APIはGo言語によって、実装されており、MVCアーキテクチャを適用しています。ただし、Web API側にビューは存在しません。(モバイルアプリ側に存在します。)  
 
-[plantuml]
-....
-@startuml
-
-left to right direction
-
-[Router\n(routerパッケージ)] as router
-[Controller\n(controllerパッケージ)] as controller
-[Model\n(modelパッケージ)] as model
-[View\n(存在しない)] as view #white
-
-router -> controller
-controller <-> model
-controller <-> view
-
-@enduml
-....
+plantuml::architecture.puml[]

@@ -1,0 +1,14 @@
+@startuml
+
+left to right direction
+
+[Router\n(routerパッケージ)] as router
+[Controller\n(controllerパッケージ)] as controller
+[Model\n(modelパッケージ)] as model
+[View\n(存在しない)] as view #white
+
+router -> controller
+controller <-> model
+controller <-> view
+
+@enduml
